@@ -1,7 +1,6 @@
 package course.labs.activitylab;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,6 +35,14 @@ public class ActivityTwo extends Activity {
 	private  Integer mPause = 0;
 	private  Integer mStop = 0;
 	private  Integer mDestroy = 0;
+	
+	private  static Integer mTotalCreate  = 0;
+	private  static Integer mTotalStart   = 0;
+	private  static Integer mTotalResume  = 0;
+	private  static Integer mTotalRestart = 0;
+	private  static Integer mTotalPause = 0;
+	private  static Integer mTotalStop = 0;
+	private  static Integer mTotalDestroy = 0;
 
 	// TODO: Create variables for each of the TextViews, called
         // mTvCreate, etc. 
@@ -107,6 +114,7 @@ public class ActivityTwo extends Activity {
 		// Update the appropriate count variable
 		// Update the user interface via the displayCounts() method
 		mCreate++;
+		mTotalCreate++;
 		displayCounts();
 
 	}
@@ -124,6 +132,7 @@ public class ActivityTwo extends Activity {
 		// Update the appropriate count variable
 		// Update the user interface
 		mStart++;
+		mTotalStart++;
 		displayCounts();
 		
 	}
@@ -139,6 +148,7 @@ public class ActivityTwo extends Activity {
 		// Update the appropriate count variable
 		// Update the user interface
 		mResume++;
+		mTotalResume++;
 		displayCounts();
 
 	}
@@ -151,6 +161,7 @@ public class ActivityTwo extends Activity {
 		Log.i(TAG, "Activity2 entered onPause");
 		
 		mPause++;
+		mTotalPause++;
 		displayCounts();
 		
 
@@ -163,7 +174,8 @@ public class ActivityTwo extends Activity {
 		// TODO: Emit LogCat message
 		Log.i(TAG, "Activity2 entered onStop");
 		
-		mPause++;
+		mStop++;
+		mTotalStop++;
 		displayCounts();
 
 	}
@@ -180,6 +192,7 @@ public class ActivityTwo extends Activity {
 		// Update the appropriate count variable
 		// Update the user interface
 		mRestart++;
+		mTotalRestart++;
 		displayCounts();	
 	}
 
@@ -191,6 +204,7 @@ public class ActivityTwo extends Activity {
 		Log.i(TAG, "Activity2 entered onDestroy");
 		
 		mDestroy++;
+		mTotalDestroy++;
 		displayCounts();
 
 	}
@@ -215,13 +229,13 @@ public class ActivityTwo extends Activity {
 	// Updates the displayed counters
 	public void displayCounts() {
 
-		mTvCreate.setText("onCreate() calls: " + mCreate);
-		mTvStart.setText("onStart() calls: " + mStart);
-		mTvResume.setText("onResume() calls: " + mResume);
-		mTvRestart.setText("onRestart() calls: " + mRestart);
-		mTvPause.setText("onPause() calls: " + mPause);
-		mTvStop.setText("onStop() calls: " + mStop);
-		mTvDestroy.setText("onDestroy() calls: " + mDestroy);
+		mTvCreate.setText("onCreate() calls: " + mCreate + ", total calls: " + mTotalCreate);
+		mTvStart.setText("onStart() calls: " + mStart + ", total calls: " + mTotalStart);
+		mTvResume.setText("onResume() calls: " + mResume + ", total calls: " + mTotalResume);
+		mTvRestart.setText("onRestart() calls: " + mRestart + ", total calls: " + mTotalRestart);
+		mTvPause.setText("onPause() calls: " + mPause + ", total calls: " + mTotalPause);
+		mTvStop.setText("onStop() calls: " + mStop + ", total calls: " + mTotalStop);
+		mTvDestroy.setText("onDestroy() calls: " + mDestroy + ", total calls: " + mTotalDestroy);
 	
 	}
 }
