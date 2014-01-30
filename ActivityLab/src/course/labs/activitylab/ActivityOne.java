@@ -101,6 +101,9 @@ public class ActivityOne extends Activity {
 			// Only need 4 lines of code, one for every count variable
 			
 			//No hace falta salvar el estado por que los contadores son variables estáticas.
+			
+			Log.i(TAG, "savedInstance != null");
+			
 			mCreate  = savedInstanceState.getInt(CREATE_KEY);
 			mStart   = savedInstanceState.getInt(START_KEY);
 			mResume  = savedInstanceState.getInt(RESUME_KEY);
@@ -113,7 +116,7 @@ public class ActivityOne extends Activity {
 
 		// TODO: Emit LogCat message
 		
-		Log.i(TAG, "Activity1 entered onCreate");
+		Log.i(TAG, "Entered the onCreate method");
 
 
 		// TODO:
@@ -133,7 +136,7 @@ public class ActivityOne extends Activity {
 		super.onStart();
 
 		// TODO: Emit LogCat message
-		Log.i(TAG, "Activity1 entered onStart");		
+		Log.i(TAG, "Entered the onStart method");		
 
 		// TODO:
 		// Update the appropriate count variable
@@ -149,7 +152,7 @@ public class ActivityOne extends Activity {
 		super.onResume();
 
 		// TODO: Emit LogCat message
-		Log.i(TAG, "Activity1 entered onResume");	
+		Log.i(TAG, "Entered the onResume method");	
 
 		// TODO:
 		// Update the appropriate count variable
@@ -165,7 +168,7 @@ public class ActivityOne extends Activity {
 		super.onPause();
 
 		// TODO: Emit LogCat message
-		Log.i(TAG, "Activity1 entered onPause");
+		Log.i(TAG, "Entered the onPause method");
 		
 		mPause++;
 		mTotalPause++;
@@ -179,7 +182,7 @@ public class ActivityOne extends Activity {
 		super.onStop();
 
 		// TODO: Emit LogCat message
-		Log.i(TAG, "Activity1 entered onStop");
+		Log.i(TAG, "Entered the onStop method");
 		
 		mStop++;
 		mTotalStop++;
@@ -192,7 +195,7 @@ public class ActivityOne extends Activity {
 		super.onRestart();
 
 		// TODO: Emit LogCat message
-		Log.i(TAG, "Activity1 entered onRestart");
+		Log.i(TAG, "Entered the onRestart method");
 
 
 		// TODO:
@@ -208,7 +211,7 @@ public class ActivityOne extends Activity {
 		super.onDestroy();
 
 		// TODO: Emit LogCat message
-		Log.i(TAG, "Activity1 entered onDestroy");
+		Log.i(TAG, "Entered the onDestroy method");
 		
 		mDestroy++;
 		mTotalDestroy++;
@@ -221,6 +224,7 @@ public class ActivityOne extends Activity {
 		// TODO:
 		// Save state information with a collection of key-value pairs
 		// 4 lines of code, one for every count variable
+		Log.i(TAG, "Entered the onSaveInstanceState");
 		savedInstanceState.putInt(CREATE_KEY, mCreate);
 		savedInstanceState.putInt(START_KEY, mStart);
 		savedInstanceState.putInt(RESUME_KEY, mResume);
@@ -228,6 +232,9 @@ public class ActivityOne extends Activity {
 		savedInstanceState.putInt(PAUSE_KEY, mRestart);
 		savedInstanceState.putInt(STOP_KEY, mRestart);
 		savedInstanceState.putInt(DESTROY_KEY, mRestart);
+		
+		super.onSaveInstanceState(savedInstanceState);
+
 		
 
 	}
